@@ -1,0 +1,30 @@
+# QA Assessment Solution – Farah Razak
+
+This repository contains my take-home QA Analyst assessment.  
+It demonstrates my ability to set up **UI automation with Playwright** and **API testing with Postman**.
+
+---
+
+## 🔹 Project Structure
+
+---
+
+## 🔹 UI Automation – Playwright
+- **Framework**: Playwright with JavaScript.
+- **Test Covered**: Successful login scenario.
+- **Steps**:
+  1. Navigate to the login page.
+  2. Enter username & password.
+  3. Submit form.
+  4. Assert welcome message.
+
+**Run the test:**
+```bash
+npx playwright test
+
+##🔹 API Testing – Postman
+Collection Name: QA Interview API Collection
+Requests:
+watchlist_post: Adds a movie to the watchlist.
+watchlist_get: Retrieves the watchlist.
+Exported as QA_Interview.postman_collection.json.
