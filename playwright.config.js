@@ -4,7 +4,7 @@
 import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
-  testDir: './tests',
+  testDir: './test',
   use: {
     headless: true,
     baseURL: 'https://qainterview.netlify.app/',
