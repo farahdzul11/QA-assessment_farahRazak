@@ -1,0 +1,96 @@
+# QA-assessment_farahRazak{
+  "info": {
+    "name": "QA Interview API Collection",
+    "_postman_id": "12345-abcde",
+    "description": "Collection with watchlist_post and watchlist_get requests including tests.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "watchlist_post",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"movie\": \"Inception\",\n  \"year\": 2010\n}"
+        },
+        "url": {
+          "raw": "https://qainterview.netlify.app/api/watchlist",
+          "protocol": "https",
+          "host": [
+            "qainterview",
+            "netlify",
+            "app"
+          ],
+          "path": [
+            "api",
+            "watchlist"
+          ]
+        }
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response has movie field\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.have.property(\"movie\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "watchlist_get",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "https://qainterview.netlify.app/api/watchlist",
+          "protocol": "https",
+          "host": [
+            "qainterview",
+            "netlify",
+            "app"
+          ],
+          "path": [
+            "api",
+            "watchlist"
+          ]
+        }
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response is an array\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.be.an('array');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    }
+  ]
+}
